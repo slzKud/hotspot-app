@@ -183,7 +183,7 @@ const useHotspot = () => {
     if (response.payload) {
       payload = response.payload as AllHotspotDetails
     }
-
+    /*
     await updateHotspotStatus(payload?.hotspot)
 
     if (!payload?.onboardingRecord?.onboardingKey) {
@@ -198,6 +198,7 @@ const useHotspot = () => {
       )
       return handleConnectStatus(err)
     }
+    */
     return handleConnectStatus(payload ? 'success' : 'details_fetch_failure')
   }
 
@@ -346,6 +347,7 @@ const useHotspot = () => {
     if (!characteristic) return false
 
     const owner = await getSecureItem('address')
+    //TODO
     const payer = connectedHotspotDetails.onboardingRecord?.maker.address
     if (!payer || !owner) return false
     const { fee, stakingFee } = calculateAddGatewayFee(owner, payer) || 0

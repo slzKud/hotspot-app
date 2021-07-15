@@ -1,4 +1,5 @@
 import { decode } from 'base-64'
+import { Buffer } from 'buffer'
 import {
   wifi_services_v1 as WifiServicesV1,
   wifi_remove_v1 as WifiRemoveV1,
@@ -74,7 +75,7 @@ export function parseChar(characteristicValue: string, uuid: string) {
 }
 
 const encodedToString = (encoded: Uint8Array) =>
-  Buffer.from(encoded).toString('base64')
+  new Buffer(encoded).toString('base64')
 
 export const encodeWifiRemove = (wifiSSID: string) => {
   const wifiRemove = WifiRemoveV1.create({

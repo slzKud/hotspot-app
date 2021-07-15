@@ -58,14 +58,14 @@ const HotspotSetupConnectingScreen = () => {
           navigation.navigate('OnboardingErrorScreen', { connectStatus })
           return
         }
-
+        /*
         // check firmware
         const hasCurrentFirmware = await checkFirmwareCurrent()
         if (!hasCurrentFirmware) {
           navigation.navigate('FirmwareUpdateNeededScreen')
           return
         }
-
+        */
         // scan for wifi networks
         const networks = uniq((await scanForWifiNetworks()) || [])
         const connectedNetworks = uniq((await scanForWifiNetworks(true)) || [])
